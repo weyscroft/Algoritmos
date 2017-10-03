@@ -1,0 +1,39 @@
+Algoritmo MDC
+/* o Algoritmo usa o teorema de Euclides para encontrar o MDC */
+
+Início
+	inteiro: x, y, n1, n2, aux, resto;
+	
+	Escreva ("Programa MDC");
+	
+	Escreva ("Digite dois números: ");
+	Leia (X, Y);
+
+	/* Para preservar os valores originais */
+
+	n1 <- x;
+	n2 <- y;
+
+	/* Para o algoritmo funcionar o 1º nº tem que ser menor que o 2º. Caso ele já for este trecho do código abaixo não é executado */
+
+	Se (x < y) então
+		aux <- x;
+		x <- y;
+		y <- aux;
+	FimSe;
+
+	/* MOD: Resto da divisão. O programa busca essencialmente a divisão exata. */
+
+	resto <- x mod y;
+
+	Enquanto (resto <> 0) faça
+		x <- y;
+		y <- resto;
+		resto <- x mod y;
+	FimEnquanto;
+
+	Escreva (" O MDC de ", n1, "e", n2, "é: ", y)
+
+Fim.
+
+	
